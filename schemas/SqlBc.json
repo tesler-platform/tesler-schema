@@ -136,7 +136,7 @@
                     "type": "string"
                 },
                 "drillDownType": {
-                    "description": "Типы переходов по ссылкам внутри приложения, адреса которых задает бэк",
+                    "description": "Types of drilldowns in the application, specified by Tesler API",
                     "enum": [
                         "external",
                         "externalNew",
@@ -184,10 +184,10 @@
                     "items": {
                         "anyOf": [
                             {
-                                "$ref": "#/definitions/ViewNavigationItem"
+                                "$ref": "#/definitions/ViewNavigationGroup"
                             },
                             {
-                                "$ref": "#/definitions/ViewNavigationGroup"
+                                "$ref": "#/definitions/ViewNavigationItem"
                             }
                         ]
                     },
@@ -295,10 +295,10 @@
                     "items": {
                         "anyOf": [
                             {
-                                "$ref": "#/definitions/ViewNavigationItem"
+                                "$ref": "#/definitions/ViewNavigationGroup"
                             },
                             {
-                                "$ref": "#/definitions/ViewNavigationGroup"
+                                "$ref": "#/definitions/ViewNavigationItem"
                             }
                         ]
                     },

@@ -9,10 +9,10 @@
                     "items": {
                         "anyOf": [
                             {
-                                "$ref": "#/definitions/ViewNavigationItem"
+                                "$ref": "#/definitions/ViewNavigationGroup"
                             },
                             {
-                                "$ref": "#/definitions/ViewNavigationGroup"
+                                "$ref": "#/definitions/ViewNavigationItem"
                             }
                         ]
                     },
@@ -101,10 +101,10 @@
                     "items": {
                         "anyOf": [
                             {
-                                "$ref": "#/definitions/ViewNavigationItem"
+                                "$ref": "#/definitions/ViewNavigationGroup"
                             },
                             {
-                                "$ref": "#/definitions/ViewNavigationGroup"
+                                "$ref": "#/definitions/ViewNavigationItem"
                             }
                         ]
                     },
