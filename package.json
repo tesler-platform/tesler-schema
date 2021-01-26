@@ -1,6 +1,6 @@
 {
   "name": "@tesler-ui/schema",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": {
     "name": "Constantine Dergachev",
     "email": "dergachev@hotmail.com",
@@ -11,7 +11,7 @@
     "url": "git://github.com/tesler-platform/tesler-schema.git"
   },
   "homepage": "https://github.com/tesler-platform/tesler-schema",
-  "main": "dist/index.js",
+  "main": "dist/generator.js",
   "license": "Apache-2.0",
   "bin": "./bin/build-schema",
   "scripts": {
