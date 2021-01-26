@@ -10,13 +10,27 @@ const compilerOptions: TJS.CompilerOptions = {
     strictNullChecks: true
 }
 
-const program = TJS.getProgramFromFiles([resolve('./src/interfaces/ScreenMetaJson.d.ts')], compilerOptions)
+const schemas = ['ScreenMeta', 'ViewMeta']
+
+const program = TJS.getProgramFromFiles(
+    schemas.map(item => resolve(`./src/interfaces/${item}Json.d.ts`)),
+    compilerOptions
+)
 const generator = TJS.buildGenerator(program, settings)
 
-const ScreenMetaJson = generator.getSchemaForSymbol('ScreenMetaJson')
-const json = stringify(ScreenMetaJson, { space: 4 }) + '\n\n'
-require('fs').writeFile('schemas/ScreenMeta.json', json, function (err: Error) {
-    if (err) {
-        throw new Error('Unable to write output file: ' + err.message)
-    }
-})
+write(schemas)
+
+function write(src: string[]) {
+    src.forEach(item => {
+        const definition = generator.getSchemaForSymbol(`${item}Json`)
+        require('fs').writeFile(`schemas/${item}.json`, stringifyJson(definition), function (err: Error) {
+            if (err) {
+                throw new Error('Unable to write output file: ' + err.message)
+            }
+        })
+    })
+}
+
+function stringifyJson(src: TJS.Definition) {
+    return stringify(src, { space: 4 }) + '\n\n'
+}
