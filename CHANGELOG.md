@@ -1,3 +1,9 @@
+# Version 0.1.3 (January 26, 2021)
+
+## Fixes
+
+* `typescript-json-schema` should be runtime dependency
+
 # Version 0.1.2 (January 26, 2021)
 
 ## Fixes
