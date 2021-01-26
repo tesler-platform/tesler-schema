@@ -10,10 +10,10 @@ const compilerOptions: TJS.CompilerOptions = {
     strictNullChecks: true
 }
 
-const schemas = ['ScreenMeta', 'ViewMeta']
+const schemas = ['ScreenMeta', 'ViewMeta', 'WidgetMeta', 'SqlBc']
 
 const program = TJS.getProgramFromFiles(
-    schemas.map(item => resolve(`./src/interfaces/${item}Json.d.ts`)),
+    schemas.map(item => resolve(`./src/interfaces/${item}.d.ts`)),
     compilerOptions
 )
 const generator = TJS.buildGenerator(program, settings)

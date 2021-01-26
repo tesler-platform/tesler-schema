@@ -1,3 +1,8 @@
+/**
+ * *.view.json file format
+ *
+ * Describes a view
+ */
 export interface ViewMetaJson {
     /**
      * Unique identifier for the view
@@ -17,10 +22,16 @@ export interface ViewMetaJson {
     widgets: ViewMetaWidget
 }
 
-type ViewMetaWidget = ViewMetaWidgetNumber | ViewMetaWidgetString
+type ViewMetaWidget = ViewMetaWidgetLegacy | ViewMetaWidgetNew
 
 interface ViewMetaWidgetBase {
+    /**
+     * Number used to order widget on the view; widgets with lesser `position` will be shown first
+     */
     position: number
+    /**
+     * Currently unused
+     */
     gridWidth?: number
 }
 
@@ -29,7 +40,7 @@ interface ViewMetaWidgetBase {
  *
  * @deprecated TODO: Will be removed in Tesler 2.0.0
  */
-interface ViewMetaWidgetNumber extends ViewMetaWidgetBase {
+interface ViewMetaWidgetLegacy extends ViewMetaWidgetBase {
     /**
      * Reference to `id` property from *.widget.json file
      *
@@ -41,7 +52,7 @@ interface ViewMetaWidgetNumber extends ViewMetaWidgetBase {
 /**
  * Widget can be uniquely identified by string id
  */
-interface ViewMetaWidgetString extends ViewMetaWidgetBase {
+interface ViewMetaWidgetNew extends ViewMetaWidgetBase {
     /**
      * Reference to `name` property from *.widget.json file
      */

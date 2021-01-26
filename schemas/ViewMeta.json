@@ -1,13 +1,63 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "definitions": {
-        "ViewMetaWidgetNumber": {
+        "Pick<ViewNavigationGroup,\"title\"|\"hidden\"|\"child\"|\"defaultView\">": {
+            "description": "From T, pick a set of properties whose keys are in the union K",
+            "properties": {
+                "child": {
+                    "description": "Nested items for the group",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/definitions/ViewNavigationItem"
+                            },
+                            {
+                                "$ref": "#/definitions/ViewNavigationGroup"
+                            }
+                        ]
+                    },
+                    "type": "array"
+                },
+                "defaultView": {
+                    "description": "If specified this view will be default view for the group; if not, the first available view will be default view",
+                    "type": "string"
+                },
+                "hidden": {
+                    "description": "If true, the group will not be visible in navigation (but still accessible by direct link or drilldown)",
+                    "type": "boolean"
+                },
+                "title": {
+                    "description": "Displayed name for the grouup",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "child",
+                "title"
+            ],
+            "type": "object"
+        },
+        "Pick<ViewNavigationItem,\"hidden\"|\"viewName\">": {
+            "description": "From T, pick a set of properties whose keys are in the union K",
+            "properties": {
+                "hidden": {
+                    "type": "boolean"
+                },
+                "viewName": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ViewMetaWidgetLegacy": {
             "description": "Widget can be uniquely identified by numeric id",
             "properties": {
                 "gridWidth": {
+                    "description": "Currently unused",
                     "type": "number"
                 },
                 "position": {
+                    "description": "Number used to order widget on the view; widgets with lesser `position` will be shown first",
                     "type": "number"
                 },
                 "widgetId": {
@@ -21,13 +71,15 @@
             ],
             "type": "object"
         },
-        "ViewMetaWidgetString": {
+        "ViewMetaWidgetNew": {
             "description": "Widget can be uniquely identified by string id",
             "properties": {
                 "gridWidth": {
+                    "description": "Currently unused",
                     "type": "number"
                 },
                 "position": {
+                    "description": "Number used to order widget on the view; widgets with lesser `position` will be shown first",
                     "type": "number"
                 },
                 "widgetName": {
@@ -45,6 +97,7 @@
             "description": "Description of groups in the navigation menu.\n\nUsed to create nesting levels of menu items.",
             "properties": {
                 "child": {
+                    "description": "Nested items for the group",
                     "items": {
                         "anyOf": [
                             {
@@ -58,9 +111,11 @@
                     "type": "array"
                 },
                 "defaultView": {
+                    "description": "If specified this view will be default view for the group; if not, the first available view will be default view",
                     "type": "string"
                 },
                 "hidden": {
+                    "description": "If true, the group will not be visible in navigation (but still accessible by direct link or drilldown)",
                     "type": "boolean"
                 },
                 "id": {
@@ -71,6 +126,7 @@
                     ]
                 },
                 "title": {
+                    "description": "Displayed name for the grouup",
                     "type": "string"
                 }
             },
@@ -97,6 +153,7 @@
             "type": "object"
         }
     },
+    "description": "*.view.json file format\n\nDescribes a view",
     "properties": {
         "name": {
             "description": "Unique identifier for the view",
@@ -113,10 +170,10 @@
         "widgets": {
             "anyOf": [
                 {
-                    "$ref": "#/definitions/ViewMetaWidgetNumber"
+                    "$ref": "#/definitions/ViewMetaWidgetLegacy"
                 },
                 {
-                    "$ref": "#/definitions/ViewMetaWidgetString"
+                    "$ref": "#/definitions/ViewMetaWidgetNew"
                 }
             ],
             "description": "Widgets present on the view"
