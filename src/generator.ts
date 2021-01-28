@@ -35,7 +35,7 @@ export function run() {
         mkdirSync('schemas')
     }
     const program = TJS.getProgramFromFiles(
-        schemas.map(item => join(__dirname, '../', `src/files/${item}.d.ts`)),
+        schemas.map(item => join(__dirname, '../', `src/files/${item}.ts`)),
         compilerOptions
     )
     const generator = TJS.buildGenerator(program, settings)

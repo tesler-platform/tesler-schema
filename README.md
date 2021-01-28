@@ -16,6 +16,13 @@ yarn add @tesler-ui/schema
 },
 ```
 
+### Disable `@tesler-ui/schema` in the `browser` section of your `package.json` file:
+```json
+"browser": {
+    "@tesler-ui/schema": false
+}
+```
+
 ### Launch command to generate schemas
 ```sh
 yarn gen:schema
