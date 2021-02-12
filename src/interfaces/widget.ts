@@ -69,7 +69,7 @@ export interface WidgetOptions {
      */
     hierarchyDisableDescendants?: boolean
     hierarchyDisableParent?: boolean
-    actionGroups?: WidgetOperations
+    actionGroups?: WidgetOperations | Record<string, WidgetOperations>
     /**
      * All widget fields are not editable
      */
