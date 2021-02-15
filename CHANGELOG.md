@@ -1,3 +1,9 @@
+# Version 0.3.0 (Febraury 15, 2021)
+
+## Features
+
+* Actions in `actionGroups` widget option can now be set separately for each business component
+
 # Version 0.2.0 (January 28, 2021)
 
 ## Features
