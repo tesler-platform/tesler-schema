@@ -18,7 +18,7 @@
 /**
  * Types of drilldowns in the application, specified by Tesler API
  */
-export const enum DrillDownType {
+export enum DrillDownType {
     /**
      * Drilldown to inner entity of the application (screen, view), i.e. url will be places after route hash sy: `#/${inner}`
      */
