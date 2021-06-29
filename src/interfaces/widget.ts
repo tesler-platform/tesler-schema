@@ -18,7 +18,7 @@
 import { DataValue } from './data'
 import { OperationType, OperationInclusionDescriptor } from './operations'
 
-export declare const enum WidgetTypes {
+export enum WidgetTypes {
     Info = 'Info',
     Form = 'Form',
     List = 'List',
@@ -145,7 +145,7 @@ export interface TableOperations {
 /**
  * Description of possible positioning options
  */
-export declare const enum PositionTypes {
+export declare enum PositionTypes {
     Top = 'Top',
     Bottom = 'Bottom',
     TopAndBottom = 'TopAndBottom'
@@ -324,7 +324,7 @@ export type WidgetInfoField = WidgetFormField & {
     hintKey?: string
 }
 
-export const enum FieldType {
+export enum FieldType {
     number = 'number',
     input = 'input',
     monthYear = 'monthYear',

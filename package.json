@@ -29,5 +29,8 @@
     "json-stable-stringify": "^1.0.1",
     "path": "^0.12.7",
     "typescript-json-schema": "^0.48.0"
+  },
+  "browser": {
+    "typescript-json-schema": false
   }
 }

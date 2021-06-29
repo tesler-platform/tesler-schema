@@ -73,7 +73,7 @@ export interface MultivalueSingleValueOptions {
     snapshotState?: RecordSnapshotState
 }
 
-export const enum RecordSnapshotState {
+export enum RecordSnapshotState {
     noChange = 'noChange',
     new = 'new',
     deleted = 'deleted'
