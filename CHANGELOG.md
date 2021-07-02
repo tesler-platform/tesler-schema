@@ -1,3 +1,11 @@
+# Version 0.3.1 (Jule 2, 2021)
+
+## Fixes
+
+* `const enum` replaced with `enum` for compatibility with CRA and other environments configured with `isolatedModules: true` ts param 
+* Runtime dependencies were not marked as non-browser in package.json
+* Erroneously applied `declare` modifiers of exported types
+
 # Version 0.3.0 (Febraury 15, 2021)
 
 ## Features
