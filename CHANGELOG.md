@@ -1,3 +1,9 @@
+# Version 0.3.2 (Jule 2, 202)
+
+## Fixes
+
+* `json-stable-stringify` erroneously considered non-browser in 0.3.1
+
 # Version 0.3.1 (Jule 2, 2021)
 
 ## Fixes
