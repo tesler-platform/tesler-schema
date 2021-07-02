@@ -33,7 +33,6 @@
   "browser": {
     "typescript-json-schema": false,
     "path": false,
-    "fs": false,
-    "json-stable-stringify": false
+    "fs": false
   }
 }
