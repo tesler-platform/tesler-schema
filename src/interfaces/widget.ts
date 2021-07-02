@@ -145,7 +145,7 @@ export interface TableOperations {
 /**
  * Description of possible positioning options
  */
-export declare enum PositionTypes {
+export enum PositionTypes {
     Top = 'Top',
     Bottom = 'Bottom',
     TopAndBottom = 'TopAndBottom'
