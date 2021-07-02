@@ -20,7 +20,7 @@
  * - string (if you just need to include / exclude operation or groups)
  * - object, if this is group in which you want to selectively include or exclude the operation
  */
-export declare type OperationInclusionDescriptor =
+export type OperationInclusionDescriptor =
     | string
     | {
           /**
@@ -40,7 +40,7 @@ export declare type OperationInclusionDescriptor =
 /**
  * TODO: Rename to CoreOperationRole in 2.0.0
  */
-export declare enum OperationTypeCrud {
+export enum OperationTypeCrud {
     create = 'create',
     save = 'save',
     delete = 'delete',
@@ -52,4 +52,4 @@ export declare enum OperationTypeCrud {
 /**
  * String that uniquely identifies an operation on widget
  */
-export declare type OperationType = OperationTypeCrud | string
+export type OperationType = OperationTypeCrud | string

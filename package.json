@@ -31,6 +31,9 @@
     "typescript-json-schema": "^0.48.0"
   },
   "browser": {
-    "typescript-json-schema": false
+    "typescript-json-schema": false,
+    "path": false,
+    "fs": false,
+    "json-stable-stringify": false
   }
 }
