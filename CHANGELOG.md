@@ -1,4 +1,4 @@
-# Version 0.3.2 (Jule 2, 202)
+# Version 0.3.2 (Jule 2, 2021)
 
 ## Fixes
 
