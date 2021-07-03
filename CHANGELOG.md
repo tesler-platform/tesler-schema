@@ -1,3 +1,9 @@
+# Version 0.3.3 (Jule 3, 2021)
+
+## Fixes
+
+* Duplications of const enums are added for compatibility  with `isolatedModules` flag
+
 # Version 0.3.2 (Jule 2, 2021)
 
 ## Fixes
