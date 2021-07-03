@@ -16,6 +16,7 @@
  */
 
 import type { WidgetTypes, WidgetOptions, WidgetShowCondition, WidgetListField, WidgetFormField } from '../interfaces/widget'
+import { WidgetTypesEnum } from '../interfaces/widget';
 
 /**
  * *.widget.json file format
@@ -30,7 +31,7 @@ export interface WidgetMetaJsonBase {
     /**
      * Widget type
      */
-    type: WidgetTypes
+    type: WidgetTypes | WidgetTypesEnum
     /**
      * Business component name
      */

@@ -40,7 +40,16 @@ export type OperationInclusionDescriptor =
 /**
  * TODO: Rename to CoreOperationRole in 2.0.0
  */
-export enum OperationTypeCrud {
+export enum OperationTypeCrudEnum {
+    create = 'create',
+    save = 'save',
+    delete = 'delete',
+    associate = 'associate',
+    cancelCreate = 'cancel-create',
+    fileUpload = 'file-upload'
+}
+
+export const enum OperationTypeCrud {
     create = 'create',
     save = 'save',
     delete = 'delete',

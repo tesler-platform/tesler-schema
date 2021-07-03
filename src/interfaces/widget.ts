@@ -18,7 +18,26 @@
 import { DataValue } from './data'
 import { OperationType, OperationInclusionDescriptor } from './operations'
 
-export enum WidgetTypes {
+export const enum WidgetTypes {
+    Info = 'Info',
+    Form = 'Form',
+    List = 'List',
+    DataGrid = 'DataGrid',
+    AssocListPopup = 'AssocListPopup',
+    PickListPopup = 'PickListPopup',
+    HeaderWidget = 'HeaderWidget',
+    SecondLevelMenu = 'SecondLevelMenu',
+    ThirdLevelMenu = 'ThirdLevelMenu',
+    FourthLevelMenu = 'FourthLevelMenu',
+    WidgetCreator = 'WidgetCreator',
+    Pivot = 'Pivot',
+    DimFilter = 'DimFilter',
+    Text = 'Text',
+    FlatTree = 'FlatTree',
+    FlatTreePopup = 'FlatTreePopup'
+}
+
+export enum WidgetTypesEnum {
     Info = 'Info',
     Form = 'Form',
     List = 'List',
@@ -139,13 +158,21 @@ export interface TableOperations {
     /**
      * Describes position of tableOperations relatively of table
      */
-    position?: PositionTypes
+    position?: PositionTypes | PositionTypesEnum
 }
 
 /**
  * Description of possible positioning options
  */
-export enum PositionTypes {
+export const enum PositionTypes {
+    Top = 'Top',
+    Bottom = 'Bottom',
+    TopAndBottom = 'TopAndBottom'
+}
+/**
+ * Description of possible positioning options
+ */
+export enum PositionTypesEnum {
     Top = 'Top',
     Bottom = 'Bottom',
     TopAndBottom = 'TopAndBottom'
@@ -176,7 +203,7 @@ export interface WidgetTableHierarchy {
 }
 
 export interface WidgetFieldBase {
-    type: FieldType
+    type: FieldType | FieldTypeEnum
     key: string
     drillDown?: boolean
     bgColor?: string
@@ -210,50 +237,50 @@ export interface WidgetFormFieldBase extends WidgetFieldBase {
 export type AllWidgetTypeFieldBase = WidgetFormFieldBase | WidgetListFieldBase
 
 export type NumberFieldMeta = AllWidgetTypeFieldBase & {
-    type: FieldType.number | FieldType.money | FieldType.percent
+    type: FieldType.number | FieldType.money | FieldType.percent | FieldTypeEnum.number | FieldTypeEnum.money | FieldTypeEnum.percent
     digits?: number
     nullable?: boolean
 }
 
 export type DateFieldMeta = AllWidgetTypeFieldBase & {
-    type: FieldType.date
+    type: FieldType.date | FieldTypeEnum.date
 }
 
 export type CheckboxFieldMeta = AllWidgetTypeFieldBase & {
-    type: FieldType.checkbox
+    type: FieldType.checkbox | FieldTypeEnum.checkbox
 }
 
 export type DateTimeFieldMeta = AllWidgetTypeFieldBase & {
-    type: FieldType.dateTime
+    type: FieldType.dateTime | FieldTypeEnum.dateTime
 }
 
 export type DateTimeWithSecondsFieldMeta = AllWidgetTypeFieldBase & {
-    type: FieldType.dateTimeWithSeconds
+    type: FieldType.dateTimeWithSeconds | FieldTypeEnum.dateTimeWithSeconds
 }
 
 export type DictionaryFieldMeta = AllWidgetTypeFieldBase & {
-    type: FieldType.dictionary
+    type: FieldType.dictionary | FieldTypeEnum.dictionary
     multiple?: boolean
     dictionaryName?: string
 }
 
 export type TextFieldMeta = AllWidgetTypeFieldBase & {
-    type: FieldType.text
+    type: FieldType.text | FieldTypeEnum.text
     popover?: boolean
 }
 
 export type InputFieldMeta = AllWidgetTypeFieldBase & {
-    type: FieldType.input | FieldType.hint
+    type: FieldType.input | FieldType.hint | FieldTypeEnum.input | FieldTypeEnum.hint
 }
 
 export type MultiFieldMeta = AllWidgetTypeFieldBase & {
-    type: FieldType.multifield
+    type: FieldType.multifield | FieldTypeEnum.multifield
     fields: WidgetField[]
     style: 'inline' | 'list'
 }
 
 export type MultivalueFieldMeta = AllWidgetTypeFieldBase & {
-    type: FieldType.multivalue | FieldType.multivalueHover
+    type: FieldType.multivalue | FieldType.multivalueHover | FieldTypeEnum.multivalue | FieldTypeEnum.multivalueHover
     popupBcName?: string
     assocValueKey?: string
     associateFieldKey?: string
@@ -261,20 +288,20 @@ export type MultivalueFieldMeta = AllWidgetTypeFieldBase & {
 }
 
 export type PickListFieldMeta = AllWidgetTypeFieldBase & {
-    type: FieldType.pickList
+    type: FieldType.pickList | FieldTypeEnum.pickList
     popupBcName: string
     pickMap: PickMap
 }
 
 export type InlinePickListFieldMeta = AllWidgetTypeFieldBase & {
-    type: FieldType.inlinePickList
+    type: FieldType.inlinePickList | FieldTypeEnum.inlinePickList
     searchSpec: string
     popupBcName: string
     pickMap: PickMap
 }
 
 export type FileUploadFieldMeta = AllWidgetTypeFieldBase & {
-    type: FieldType.fileUpload
+    type: FieldType.fileUpload | FieldTypeEnum.fileUpload
     fileIdKey: string
     fileSource: string
     snapshotFileIdKey?: string
@@ -284,11 +311,11 @@ export type FileUploadFieldMeta = AllWidgetTypeFieldBase & {
  * @deprecated TODO: Remove in 2.0.0 in favor of `hidden` flag of widget meta field description
  */
 export type HiddenFieldMeta = AllWidgetTypeFieldBase & {
-    type: FieldType.hidden
+    type: FieldType.hidden | FieldTypeEnum.hidden
 }
 
 export type RadioButtonFieldMeta = AllWidgetTypeFieldBase & {
-    type: FieldType.radio
+    type: FieldType.radio | FieldTypeEnum.radio
 }
 
 /**
@@ -324,7 +351,44 @@ export type WidgetInfoField = WidgetFormField & {
     hintKey?: string
 }
 
-export enum FieldType {
+export const enum FieldType {
+    number = 'number',
+    input = 'input',
+    monthYear = 'monthYear',
+    date = 'date',
+    dateTime = 'dateTime',
+    dateTimeWithSeconds = 'dateTimeWithSeconds',
+    checkbox = 'checkbox',
+    /**
+     * @deprecated TODO: project-specific, remove in 2.0.0
+     */
+    checkboxSql = 'checkboxSql',
+    /**
+     * @deprecated TODO: project-specific, remove in 2.0.0
+     */
+    DMN = 'DMN',
+    pickList = 'pickList',
+    inlinePickList = 'inline-pickList',
+    dictionary = 'dictionary',
+    hidden = 'hidden', // @deprecated TODO: Remove in 2.0.0 in favor of `hidden` flag of widget meta field description
+    text = 'text',
+    percent = 'percent',
+    fileUpload = 'fileUpload',
+    money = 'money',
+    /**
+     * @deprecated TODO: project-specific, remove in 2.0.0
+     */
+    comboCondition = 'combo-condition',
+    richText = 'richText',
+    printForm = 'printForm',
+    multifield = 'multifield',
+    multivalue = 'multivalue',
+    multivalueHover = 'multivalueHover',
+    hint = 'hint',
+    radio = 'radio'
+}
+
+export enum FieldTypeEnum {
     number = 'number',
     input = 'input',
     monthYear = 'monthYear',
