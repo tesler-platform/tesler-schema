@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-import { DrillDownType, DrillDownTypeEnum } from './router'
+import { DrillDownType } from './router'
 
 /**
  * Possible types of fields values
@@ -69,17 +69,11 @@ export interface MultivalueSingleValueOptions {
      */
     icon?: string
     drillDown?: string
-    drillDownType?: DrillDownType | DrillDownTypeEnum
-    snapshotState?: RecordSnapshotState | RecordSnapshotStateEnum
+    drillDownType?: DrillDownType
+    snapshotState?: RecordSnapshotState
 }
 
-export const enum RecordSnapshotState {
-    noChange = 'noChange',
-    new = 'new',
-    deleted = 'deleted'
-}
-
-export enum RecordSnapshotStateEnum {
+export enum RecordSnapshotState {
     noChange = 'noChange',
     new = 'new',
     deleted = 'deleted'
