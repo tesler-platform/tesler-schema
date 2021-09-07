@@ -34,7 +34,15 @@ export enum WidgetTypes {
     DimFilter = 'DimFilter',
     Text = 'Text',
     FlatTree = 'FlatTree',
-    FlatTreePopup = 'FlatTreePopup'
+    FlatTreePopup = 'FlatTreePopup',
+    /**
+     * Navigation tabs widget to be excluded from the widget stream
+     */
+    ViewNavigation = 'ViewNavigation',
+    /**
+     * Navigation tabs widget to be displayed in the widget stream
+     */
+    NavigationTabs = 'NavigationTabs'
 }
 
 /**
