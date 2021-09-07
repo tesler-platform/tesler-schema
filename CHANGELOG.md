@@ -1,3 +1,9 @@
+# Version 0.4.0 (September 7, 2021)
+
+## Features
+
+* `ViewNavigation` and `NavigationTabs` widget types are added
+
 # Version 0.3.4 (Jule 6, 2021)
 
 ## Fixes
