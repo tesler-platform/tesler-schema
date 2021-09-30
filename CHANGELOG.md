@@ -1,3 +1,9 @@
+# Version 0.5.0 (September 30, 2021)
+
+## Features
+
+* `filterBy` parameter is added for field description in widget meta ([tesler-ui/core #711](https://github.com/tesler-platform/tesler-ui/issues/711))
+
 # Version 0.4.0 (September 7, 2021)
 
 ## Features
