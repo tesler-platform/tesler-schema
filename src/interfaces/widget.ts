@@ -201,9 +201,15 @@ export interface WidgetFieldBase {
     hidden?: boolean
     /**
      * Shift value of different hierarchy level
+     *
+     * TODO: Project-specific, has no support in Tesler backend
      */
     hierarchyShift?: boolean
     drillDownKey?: string
+    /**
+     * When assigned with another field key, this another will be used for filtration purposes
+     */
+    filterBy?: string
 }
 
 export interface WidgetListFieldBase extends WidgetFieldBase {
