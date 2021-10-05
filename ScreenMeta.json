@@ -1,26 +1,77 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "definitions": {
-        "ViewNavigationGroup": {
-            "description": "Description of groups in the navigation menu.\n\nUsed to create nesting levels of menu items.",
+        "Pick<ViewNavigationGroup,\"title\"|\"hidden\"|\"child\"|\"defaultView\">": {
+            "description": "From T, pick a set of properties whose keys are in the union K",
             "properties": {
                 "child": {
+                    "description": "Nested items for the group",
                     "items": {
                         "anyOf": [
                             {
-                                "$ref": "#/definitions/ViewNavigationItem"
+                                "$ref": "#/definitions/ViewNavigationGroup"
                             },
                             {
-                                "$ref": "#/definitions/ViewNavigationGroup"
+                                "$ref": "#/definitions/ViewNavigationItem"
                             }
                         ]
                     },
                     "type": "array"
                 },
                 "defaultView": {
+                    "description": "If specified this view will be default view for the group; if not, the first available view will be default view",
                     "type": "string"
                 },
                 "hidden": {
+                    "description": "If true, the group will not be visible in navigation (but still accessible by direct link or drilldown)",
+                    "type": "boolean"
+                },
+                "title": {
+                    "description": "Displayed name for the grouup",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "child",
+                "title"
+            ],
+            "type": "object"
+        },
+        "Pick<ViewNavigationItem,\"hidden\"|\"viewName\">": {
+            "description": "From T, pick a set of properties whose keys are in the union K",
+            "properties": {
+                "hidden": {
+                    "type": "boolean"
+                },
+                "viewName": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ViewNavigationGroup": {
+            "description": "Description of groups in the navigation menu.\n\nUsed to create nesting levels of menu items.",
+            "properties": {
+                "child": {
+                    "description": "Nested items for the group",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/definitions/ViewNavigationGroup"
+                            },
+                            {
+                                "$ref": "#/definitions/ViewNavigationItem"
+                            }
+                        ]
+                    },
+                    "type": "array"
+                },
+                "defaultView": {
+                    "description": "If specified this view will be default view for the group; if not, the first available view will be default view",
+                    "type": "string"
+                },
+                "hidden": {
+                    "description": "If true, the group will not be visible in navigation (but still accessible by direct link or drilldown)",
                     "type": "boolean"
                 },
                 "id": {
@@ -31,6 +82,7 @@
                     ]
                 },
                 "title": {
+                    "description": "Displayed name for the grouup",
                     "type": "string"
                 }
             },
@@ -57,8 +109,10 @@
             "type": "object"
         }
     },
+    "description": "*.screen.json file format\n\nDescribes a screen",
     "properties": {
         "name": {
+            "description": "Unique identifier for the screen",
             "type": "string"
         },
         "navigation": {
@@ -67,10 +121,26 @@
                     "items": {
                         "anyOf": [
                             {
-                                "$ref": "#/definitions/ViewNavigationItem"
+                                "$ref": "#/definitions/Pick<ViewNavigationGroup,\"title\"|\"hidden\"|\"child\"|\"defaultView\">"
                             },
                             {
-                                "$ref": "#/definitions/ViewNavigationGroup"
+                                "allOf": [
+                                    {
+                                        "$ref": "#/definitions/Pick<ViewNavigationItem,\"hidden\"|\"viewName\">"
+                                    },
+                                    {
+                                        "properties": {
+                                            "viewName": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "viewName"
+                                        ],
+                                        "type": "object"
+                                    }
+                                ],
+                                "description": "Omit deprecated fields and include mandatory fields from 2.0.0"
                             }
                         ]
                     },
@@ -83,15 +153,18 @@
             "type": "object"
         },
         "primaryViewName": {
+            "description": "Default view for the screen; will be opened if no view name is specified when navigating to a screen",
             "type": "string"
         },
         "primaryViews": {
+            "description": "Not used",
             "items": {
                 "type": "string"
             },
             "type": "array"
         },
         "title": {
+            "description": "Displayed name\n\nRequired, but not used at the moment; `text` field from `responsibilities` table will be shown instead",
             "type": "string"
         }
     },
