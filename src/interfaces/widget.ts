@@ -105,6 +105,11 @@ export interface WidgetOptions {
      * TODO: Move to separate interface
      */
     multiple?: boolean
+    /**
+     * Enables filtering dates by range
+     * TODO: It's a temporal option. Remove for 2.x of tesler-ui/core
+     */
+    filterDateByRange?: boolean
 }
 
 /**
