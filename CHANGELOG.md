@@ -1,3 +1,9 @@
+# Version 0.6.0 (September 3, 2022)
+
+## Features
+
+* `filterDateByRange` parameter is added for options description in widget meta ([tesler-ui/core #743](https://github.com/tesler-platform/tesler-ui/pull/743))
+
 # Version 0.5.0 (September 30, 2021)
 
 ## Features
